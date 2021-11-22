@@ -1,6 +1,6 @@
 import transporter from "./transporter";
 
-export const sendEmail = async (
+export const sendEmailProgress = async (
   nama: any,
   email: any,
   prevStatus: any,

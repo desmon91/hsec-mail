@@ -1,12 +1,12 @@
 import express, { Request, Response } from "express";
-import { sendEmail } from "../utils/sendEmail";
+import { sendEmailProgress } from "../utils/sendEmailProgress";
 
 const router = express.Router();
 
-router.post("/api/sendMail", async (req: Request, res: Response) => {
+router.post("/api/sendProgress", async (req: Request, res: Response) => {
   const { nama, email, prevStatus, curStatus } = req.body;
   try {
-    await sendEmail(nama, email, prevStatus, curStatus);
+    await sendEmailProgress(nama, email, prevStatus, curStatus);
     res.status(200).send({});
   } catch (error) {
     console.error(error);
@@ -14,4 +14,4 @@ router.post("/api/sendMail", async (req: Request, res: Response) => {
   }
 });
 
-export { router as sendMail };
+export { router as sendProgress };

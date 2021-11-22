@@ -1,5 +1,5 @@
 import express, { json } from "express";
-import { sendMail } from "./routes/sendMail";
+import { sendProgress } from "./routes/sendProgress";
 
 var cors = require("cors");
 
@@ -8,6 +8,6 @@ app.use(cors());
 app.set("trust proxy", true);
 app.use(json());
 
-app.use(sendMail);
+app.use(sendProgress);
 
 export { app };
