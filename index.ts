@@ -36,10 +36,11 @@ const start = async () => {
   });
 
   // Notification handler
+  //////////// 3600000 = 1 jam ///////////////////
   //////////// 60000 = 1 menit ///////////////////
   //////////// 30000 = 30 detik ///////////////////
   //////////// 10000 = 10 detik ///////////////////
-  setInterval(checkExpiredSimper, 10000);
+  setInterval(checkExpiredSimper, 3600000);
 };
 
 start();
