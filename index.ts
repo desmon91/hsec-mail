@@ -30,7 +30,7 @@ const start = async () => {
     res.send("HSEC Mail Service Online");
   });
 
-  app.listen(5000, () => {
+  app.listen(process.env.PORT || 5000, () => {
     console.log("HSEC Mail Service Online!");
     console.log("Listening on port 5000!");
   });
