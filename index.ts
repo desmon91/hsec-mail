@@ -26,7 +26,7 @@ const start = async () => {
     console.log(err);
   }
 
-  app.get("/", (req: Request, res: Response) => {
+  app.get("/", (req, res) => {
     res.send("HSEC Mail Service Online");
   });
 
