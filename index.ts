@@ -10,12 +10,24 @@ const start = async () => {
     throw new Error("MONGO_URI must be defined");
   }
 
+  if (!process.env.EMAIL_ID) {
+    throw new Error("EMAIL_ID must be defined");
+  }
+
+  if (!process.env.EMAIL_PASSWORD) {
+    throw new Error("EMAIL_PASSWORD must be defined");
+  }
+
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Connected to mongodb");
   } catch (err) {
     console.log(err);
   }
+
+  app.get("/", (req, res) => {
+    res.send("HSEC Mail Service Online");
+  });
 
   app.listen(5000, () => {
     console.log("HSEC Mail Service Online!");
