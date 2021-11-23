@@ -1,3 +1,4 @@
+import { Request, Response } from "express";
 import mongoose from "mongoose";
 import { app } from "./app";
 import { checkExpiredSimper } from "./utils/checkExpiredSimper";
@@ -25,7 +26,7 @@ const start = async () => {
     console.log(err);
   }
 
-  app.get("/", (req, res) => {
+  app.get("/", (req: Request, res: Response) => {
     res.send("HSEC Mail Service Online");
   });
 
