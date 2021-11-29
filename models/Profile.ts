@@ -8,12 +8,14 @@ const profileSchema = new Schema({
   jabatan: { type: Object },
   perusahaan: { type: Object },
   userPerusahaan: { type: Object },
+  satpas: { type: Object },
   status: { type: Object },
   simper: {
     noSimpol: { type: String },
     jenis: { type: String, default: "A" },
     tipe: { type: String, default: "NON-PIT" },
     persetujuan: { type: Boolean, default: false },
+    final: { type: Boolean, default: false },
     ujian: { type: Boolean, default: false },
     tolak: { type: Boolean, default: false },
     lastStatus: {
