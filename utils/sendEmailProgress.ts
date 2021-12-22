@@ -1,4 +1,5 @@
 import transporter from "./transporter";
+const { progress_email } = require("../email_template/progress_template");
 
 export const sendEmailProgress = async (
   nama: any,
@@ -6,21 +7,11 @@ export const sendEmailProgress = async (
   prevStatus: any,
   curStatus: any
 ) => {
-  const messageParts = [
-    `Dear <b>${nama}</b>,`,
-    `<br><br>Proses <span style="text-transform: uppercase;font-weight:bold">${prevStatus.nama}</span> SIMPER anda telah berubah menjadi <span style="text-transform: uppercase;font-weight:bold">${curStatus.nama}</span>,`,
-    `<br><br>Pesan Admin: ${curStatus.msg}`,
-    `<br>`,
-    `<br><br>Silahkan klik tautan ini untuk melihat proses terbaru SIMPER anda <a href="${process.env.CLIENT_LINK}">Link</a>`,
-    `<br>`,
-    "<br><br><br>Terimakasih.",
-  ];
-  const mailContent = messageParts.join("\n");
   const message = {
     from: process.env.EMAIL_ID,
     to: email,
     subject: `ESIMPER NOTIFICATION: ${prevStatus.nama.toUpperCase()} SIMPER`,
-    html: mailContent,
+    html: progress_email(nama, prevStatus, curStatus, process.env.CLIENT_LINK),
   };
 
   console.log(
